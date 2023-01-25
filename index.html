@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Snake Game</title>
+    <style>
+        /* Set the canvas size and background color */
+        canvas {
+            background-color: #eee;
+            display: block;
+            margin: 0 auto;
+            border: 2px solid black;
+        }
+        /* Style the score display */
+        #score {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        /* Style the game over message */
+        #gameover {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="500" height="500"></canvas>
+<div id="score"></div>
+<div id="gameover">Game Over</div>
+
+<script src="snake.js"></script>
+
+</body>
+</html>
+
+
+
+
