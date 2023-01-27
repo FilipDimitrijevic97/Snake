@@ -38,6 +38,7 @@ function update() {
     if (snakeX == foodX && snakeY == foodY) {
         foodX = Math.floor(Math.random() * 490);
         foodY = Math.floor(Math.random() * 490);
+        snakeSize += 10;
     }
 }
 
