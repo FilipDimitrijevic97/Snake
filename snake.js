@@ -35,12 +35,14 @@ function update() {
     }
 
     // Check if the snake hit the food
-    if (snakeX == foodX && snakeY == foodY) {
+    if (snakeX >= foodX && snakeX < foodX + snakeSize && snakeY >= foodY && snakeY < foodY + snakeSize) {
         foodX = Math.floor(Math.random() * 490);
         foodY = Math.floor(Math.random() * 490);
-        snakeSize += 10;
+        snakeSize += 1;
     }
+
 }
+
 
 // Handle arrow key presses to change the snake's direction
 document.onkeydown = function(event) {
@@ -58,6 +60,10 @@ document.onkeydown = function(event) {
 // Call the update and draw functions every 100 milliseconds
 setInterval(update, 100);
 setInterval(draw, 100);
+
+
+
+
 
 
 
