@@ -1,5 +1,10 @@
 /**
- * This is a simple snake game.
+ * 
+ * Explanation: It's a simple snake game. The snake is controlled by the arrow keys. 
+ * The snake grows when it eats the food. The game ends when the snake hits the wall or itself.
+ * @Author is @FilipDimitrijevic97
+ * @Date 2023-01-27
+ * 
  */
 
 var canvas = document.getElementById("gameCanvas");
@@ -27,10 +32,18 @@ function draw() {
     }
     ctx.fillStyle = "red";
     ctx.fillRect(foodX, foodY, foodSize, foodSize);
+
     // draw score
     ctx.fillStyle = "black";
     ctx.font = "20px Arial";
     ctx.fillText("Score: " + score, 10, 20);
+
+    // draw game over text if the snake hit the wall or itself
+    if (snakeX < 0 || snakeX > 490 || snakeY < 0 || snakeY > 490) {
+        ctx.fillStyle = "black";
+        ctx.font = "20px Arial";
+        ctx.fillText("Game Over", 200, 200);
+    }
 }
 
 // Update the snake's position based on the direction
@@ -52,6 +65,15 @@ function update() {
         foodX = Math.floor(Math.random() * 490);
         foodY = Math.floor(Math.random() * 490);
         snakeBody.push([snakeX, snakeY]);
+    }
+
+    // Check if the snake hit the wall
+    if (snakeX < 0 || snakeX > 490 || snakeY < 0 || snakeY > 490) {
+        snakeX = 250;
+        snakeY = 250;
+        snakeBody = [[snakeX, snakeY]];
+        // reset score
+        score = 0;
     }
 
     // update score
